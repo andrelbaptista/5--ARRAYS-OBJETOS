@@ -180,19 +180,21 @@ const valoresPagos = [
 ];
 
 valoresPagos.forEach((valorPago) => {
-    console.log(`O valor pago a ${valorPago.contratado} é de R$ ${valorPago.valor}`);
+  console.log(
+    `O valor pago a ${valorPago.contratado} é de R$ ${valorPago.valor}`
+  );
 });
 
 // includes
-const marcas =["VW","FIAT","PEUGEOT","CITROEN"];
+const marcas = ["VW", "FIAT", "PEUGEOT", "CITROEN"];
 console.log(marcas.includes("VW"));
 
 if (marcas.includes("FIAT")) {
-    console.log("Existem carros da marca FIAT !");
-};
+  console.log("Existem carros da marca FIAT !");
+}
 
 // reverse
-const numOrdem = [1,2,3,4,5,6,7];
+const numOrdem = [1, 2, 3, 4, 5, 6, 7];
 console.log(numOrdem);
 
 numOrdem.reverse();
@@ -210,15 +212,15 @@ console.log(textoSanitizacao.trim().length);
 
 // padstart padend
 const numero = "1";
-const numeroPadstart = numero.padStart(5,"0");
-const numeroPadend = numero.padEnd(5,"0");
+const numeroPadstart = numero.padStart(5, "0");
+const numeroPadend = numero.padEnd(5, "0");
 
 console.log(numero);
 console.log(numeroPadstart);
 console.log(numeroPadend);
 
 // split
-const frase ="O rato roeu a roupa do Rei de Roma";
+const frase = "O rato roeu a roupa do Rei de Roma";
 const arrayFrase = frase.split(" ");
 
 console.log(frase);
@@ -238,7 +240,7 @@ console.log(palavra.repeat(5));
 // rest Operator
 const somaInfinita = (...args) => {
   let xyz = 0;
-  console.log( args.length);
+  console.log(args.length);
   for (let i = 0; i < args.length; i++) {
     xyz += args[i];
     console.log(`args: ${args[i]}`);
@@ -246,5 +248,60 @@ const somaInfinita = (...args) => {
   return xyz;
 };
 
-console.log(somaInfinita (1,2,3,4));
+console.log(somaInfinita(1, 2, 3, 4));
+
+// for...of
+const somaInfinita2 = (...args) => {
+  let total = 0;
+  for (num of args) {
+    total += num;
+  }
+  return total;
+};
+
+console.log(somaInfinita2(1, 2, 3, 4, 5, 6));
+console.log(somaInfinita2(400, 400, 500, 600));
+
+// destructuring em objetos
+const vendedores = {
+  nome: "José",
+  idade: 35,
+  especialidade: "auto-peças",
+};
+
+const { nome, idade, especialidade } = vendedores;
+console.log(nome, idade, especialidade);
+
+const { nome: nomePrimeiro } = vendedores;
+
+console.log(nomePrimeiro);
+
+// destructuring arrays
+const transportes = [
+  "Avião",
+  "Ônibus",
+  "Automóvel",
+  "Bicicleta",
+  "Motocicleta",
+];
+
+const [veiculoA, veiculoB, veiculoC, x, y, z] = transportes;
+console.log(veiculoA, veiculoB, veiculoC);
+console.log(z);
+
+// JSON
+const formatoJson = `{"nome":"André Baptista",
+"idade":55,"hoby":["video game","motociclismo","musculação"],"casado":true}`;
+console.log(formatoJson);
+console.log(typeof formatoJson);
+
+// JSON para objeto e objeto para JSON
+const objetoRecebido = JSON.parse(formatoJson);
+
+console.log(objetoRecebido);
+console.log(typeof objetoRecebido);
+
+const objetoEnviado = JSON.stringify(objetoRecebido);
+console.log(objetoEnviado);
+console.log(typeof objetoEnviado);
 
