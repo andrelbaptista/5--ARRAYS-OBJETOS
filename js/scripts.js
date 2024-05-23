@@ -197,3 +197,54 @@ console.log(numOrdem);
 
 numOrdem.reverse();
 console.log(`O reverse altera a ordem do array original: ${numOrdem}`);
+
+// trim
+const textoSanitizacao = "        Olá, tudo bem ? \n e ai           ";
+console.log(textoSanitizacao);
+
+console.log(textoSanitizacao.trim());
+
+console.log(textoSanitizacao.length);
+
+console.log(textoSanitizacao.trim().length);
+
+// padstart padend
+const numero = "1";
+const numeroPadstart = numero.padStart(5,"0");
+const numeroPadend = numero.padEnd(5,"0");
+
+console.log(numero);
+console.log(numeroPadstart);
+console.log(numeroPadend);
+
+// split
+const frase ="O rato roeu a roupa do Rei de Roma";
+const arrayFrase = frase.split(" ");
+
+console.log(frase);
+console.log(arrayFrase);
+
+// join
+const fraseSeparada = ["Olá,", "sabe qual é", "a previsão? "];
+const fraseJunta = fraseSeparada.join(", ");
+
+console.log(fraseSeparada);
+console.log(fraseJunta);
+
+// repeat
+const palavra = "Testando ";
+console.log(palavra.repeat(5));
+
+// rest Operator
+const somaInfinita = (...args) => {
+  let xyz = 0;
+  console.log( args.length);
+  for (let i = 0; i < args.length; i++) {
+    xyz += args[i];
+    console.log(`args: ${args[i]}`);
+  }
+  return xyz;
+};
+
+console.log(somaInfinita (1,2,3,4));
+
